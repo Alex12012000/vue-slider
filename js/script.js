@@ -2,7 +2,7 @@
 var app = new Vue ({
     el: '#app',
     data: {
- 
+        autoPlay: null,
         currentImage: 0,
         slides: [
             {
@@ -55,11 +55,20 @@ var app = new Vue ({
         currentImageOnClick (elementIndex) {
             this.currentImage = elementIndex;
         },
+
+        stopAutoPlay () {
+            clearInterval(this.autoPlay);
+            this.autoPlay = null;
+        },
+
+        startAutoPlay () {
+            this.autoPlay = setInterval(this.imageUp, 3000)
+        }
         
     },
 
     mounted() {
-        setInterval(this.imageUp, 3000)
+       this.autoPlay = setInterval(this.imageUp, 3000)
     }
 
 })
