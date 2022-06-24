@@ -2,6 +2,7 @@
 var app = new Vue ({
     el: '#app',
     data: {
+ 
         currentImage: 0,
         slides: [
             {
@@ -36,6 +37,7 @@ var app = new Vue ({
         imageUp () {
             if(this.currentImage < this.slides.length -1) {
                 this.currentImage++;
+
             } else {
                 this.currentImage = 0;
             }
@@ -47,8 +49,12 @@ var app = new Vue ({
             } else {
                 this.currentImage = this.slides.length -1;
             }
-                
-        }
+            
+        },
+
+        currentImageOnClick (elementIndex) {
+            this.currentImage = elementIndex;
+        },
         
     }
 

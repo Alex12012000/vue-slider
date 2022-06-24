@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Carosello News</title>
     <link rel="stylesheet" href="css/style.css"/>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <title>Slider</title>
 </head>
@@ -28,10 +28,10 @@
                 </div>
 
                 <div class="thumbs">
-                    <div @click="imageUp()" class="prev"></div>
-                    <div @click="imageDown()" class="next"></div>
-                    <div v-for="(slide, index) in slides" class="thumb">
-                        <img :src=slide.image alt="slide.title"/>
+                    <div @click="imageDown()" class="prev"></div>
+                    <div @click="imageUp()" class="next"></div>
+                    <div v-for="(slide, index) in slides" :class="{ 'active': index === currentImage }" class="thumb">
+                        <img @click="currentImageOnClick(index)" :src=slide.image alt="slide.title"/>
                     </div>
                
                 </div>
