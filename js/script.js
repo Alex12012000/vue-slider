@@ -56,7 +56,10 @@ var app = new Vue ({
             this.currentImage = elementIndex;
         },
         
-    }
+    },
 
+    mounted() {
+        setInterval(this.imageUp, 3000)
+    }
 
 })
